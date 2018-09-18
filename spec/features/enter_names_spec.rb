@@ -7,3 +7,10 @@ feature "players can input their names" do
     expect(page).to have_content("John vs Jim")
   end
 end
+
+feature "players display hit points" do
+  scenario "should have number below name" do
+    visit '/play'
+    expect(page).to have_content("100")
+  end
+end
