@@ -14,5 +14,14 @@ feature "attacking another player" do
     expect(page).to have_content 'Jim: 40HP'
   end
 
-  
+  scenario "mulptiple attacks reduces player's HP's" do
+    sign_in_and_play
+    click_button("Attack Player 2!")
+    click_button("Attack Player 1!")
+    click_button("Attack Player 2!")
+    expect(page).not_to have_content 'Jim: 50HP'
+    expect(page).to have_content 'Jim: 30HP'
+  end
+
+
 end

@@ -1,3 +1,11 @@
-<%= @player1_name %> fireballed <%= @player2_name %>!
+<%= @game.player1.name  %> fireballed <%= @game.player2.name  %>!
 <br>
-<%= @player2_name %>: <%= @player2_hp %>HP
+<%= @game.player2.name %>: <%= @game.player2.hit_points %>HP
+<br>
+<%= @game.player1.name %>: <%= @game.player1.hit_points %>HP
+<br>
+Current players turn: <%= @game.turn.name %>
+
+<form action="/play" method="post">
+  <input type="submit" name="submit" value="Attack Player 1!">
+</form>
