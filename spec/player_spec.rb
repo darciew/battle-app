@@ -1,7 +1,11 @@
 require 'player'
 
 describe Player do
-  it 'returns its name' do
-    expect(subject).to eq(subject)
-  end
+  let(:player) { described_class.new("John") }
+
+  describe 'player name' do
+    it 'returns name' do
+      expect(player.name).to eq "John"
+    end
+  end 
 end
