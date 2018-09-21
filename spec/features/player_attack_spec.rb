@@ -25,5 +25,10 @@ feature "attacking another player" do
     expect(page).to have_content 'Jim: 43HP'
   end
 
-
+  scenario "a player wins and the game is over" do
+    sign_in_and_play
+    srand(4000)
+    to_the_death
+    expect(page).to have_content("GAME IS OVER")
+  end
 end

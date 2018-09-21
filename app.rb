@@ -12,27 +12,35 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $player_1 = Player.new(params[:player1_name])
-    $player_2 = Player.new(params[:player2_name])
-    $game = Game.new($player_1,$player_2)
+    player_1 = Player.new(params[:player1_name])
+    player_2 = Player.new(params[:player2_name])
+    session[:game] = Game.new(player_1,player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
+    @game = session[:game]
     erb :players
   end
 
   post '/play' do
-    $game.attack($game.player1)
-    $game.turn_switcher
+    @game = session[:game]
+    @game.attack(@game.player1)
+    redirect '/game_over' if @game.is_over?
+    @game.turn_switcher
     redirect '/play'
   end
 
   get '/player_attacked' do
-    $game.attack($game.player2)
-    $game.turn_switcher
-    @game = $game
+    @game = session[:game]
+    @game.attack(@game.player2)
+    redirect '/game_over' if @game.is_over?
+    @game.turn_switcher
+    @game = @game
     erb :attack
+  end
+
+  get '/game_over' do
+    "GAME IS OVER"
   end
 end
