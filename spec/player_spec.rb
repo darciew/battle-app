@@ -18,17 +18,4 @@ describe Player do
       expect(player1.hit_points).to eq 44
     end
   end
-
-  # describe 'attack' do
-  #   it 'reduces another players hp by 10' do
-  #     player1.attack(player2)
-  #     expect(player2.hit_points).to eq 40
-  #   end
-  #
-  #   it 'reduces another players hp by 20' do
-  #     player1.attack(player2)
-  #     player1.attack(player2)
-  #     expect(player2.hit_points).to eq 30
-  #   end
-  # end
 end

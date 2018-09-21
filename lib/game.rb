@@ -18,4 +18,12 @@ attr_reader :player1, :player2, :turn
   def is_over?
     player1.hit_points <= 0 || player2.hit_points <= 0
   end
+
+  def game_winner
+    if player1.hit_points > 0
+      player1.name
+    else
+      player2.name
+    end
+  end
 end

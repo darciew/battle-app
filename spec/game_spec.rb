@@ -2,10 +2,12 @@ require 'game'
 
 describe Game do
   let(:pokemon) { described_class.new(tom, andy) }
+  let(:rubbish_game) { described_class.new(bad_player, andy) }
 
-  let(:tom) {double :player, reduce_hp: nil }
-  let(:andy) { double :player2, reduce_hp: nil }
-  # let(:player1) { double :pikachu, reduce_hp: nil }
+  let(:tom) {double :player, reduce_hp: nil, hit_points: 10 }
+  let(:andy) { double :player2, reduce_hp: nil, hit_points: 10 }
+  let(:bad_player) { double :player3, hit_points: 0 }
+
 
   describe 'player1' do
     it 'should return the player1 object' do
@@ -39,6 +41,16 @@ describe Game do
       pokemon.turn_switcher
       pokemon.turn_switcher
       expect(pokemon.turn).to eq tom
+    end
+  end
+
+  describe 'game #is_over' do
+    it 'returns false if neither player has 0 HP' do
+      expect(pokemon.is_over?).to eq false
+    end
+
+    it 'returns true if a player wins' do
+      expect(rubbish_game.is_over?).to eq true
     end
   end
 end

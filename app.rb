@@ -41,6 +41,8 @@ class Battle < Sinatra::Base
   end
 
   get '/game_over' do
-    "GAME IS OVER"
+    @game = session[:game]
+    @game.game_winner
+    erb :game_over
   end
 end
