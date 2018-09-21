@@ -13,8 +13,9 @@ describe Player do
 
   describe 'reduce_hp' do
     it 'reduces a players HP by 10' do
+      srand(4000)
       player1.reduce_hp
-      expect(player1.hit_points).to eq 40
+      expect(player1.hit_points).to eq 44
     end
   end
 

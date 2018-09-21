@@ -9,7 +9,7 @@ attr_reader :name, :hit_points
   end
 
   def reduce_hp
-    @hit_points -= 10
+    @hit_points -= rand(1..10)
   end
 
 end
