@@ -5,24 +5,8 @@
     click_button("Submit")
   end
 
-def to_the_death
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-  click_button("Attack Player 1!")
-  click_button("Attack Player 2!")
-end
+  def to_the_death
+    9.times { click_button("Attack Player 2!")
+              click_button("Attack Player 1!") }
+    click_button("Attack Player 2!")
+  end
